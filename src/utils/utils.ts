@@ -44,6 +44,35 @@ export function ensureElement<T extends HTMLElement>(selectorElement: SelectorEl
     throw new Error('Unknown selector element');
 }
 
+export function ensureAttribute(attribute: string, element: HTMLElement): string {
+    const value = element.getAttribute(attribute);
+    if (value === null) {
+        throw new Error(`Attribute ${attribute} return nothing`);
+    }
+    return value;
+}
+
+export function ensureTemplateElement(id: string): HTMLTemplateElement {
+    const element = document.getElementById(id);
+    if (!element) {
+        throw new Error(`Element with id "${id}" return nothing`);
+    }
+    if (!(element instanceof HTMLTemplateElement)) {
+        throw new Error(`Element with id "${id}" is not a HTMLTemplateElement`);
+    }
+    return element;
+}
+
+export function ensureElementById <T extends HTMLElement>(id: string): T {
+    const element = document.getElementById(id);
+    
+    if (!element) {
+        throw new Error(`Element with id "${id}" return nothing`);
+    }
+    
+    return element as T;
+}
+
 export function cloneTemplate<T extends HTMLElement>(query: string | HTMLTemplateElement): T {
     const template = ensureElement(query) as HTMLTemplateElement;
     return template.content.firstElementChild.cloneNode(true) as T;
