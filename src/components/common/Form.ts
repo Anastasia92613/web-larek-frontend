@@ -39,7 +39,7 @@ export class Form extends Component<IForm> {
     };
 
     setError (fieldName: keyof IBuyer): void {
-        this.error.textContent = errorsForm[fieldName];
+        this.setText(this.error, errorsForm[fieldName]);
     };
 
     clearError (): void {

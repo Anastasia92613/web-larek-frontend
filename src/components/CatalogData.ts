@@ -10,7 +10,7 @@ export class CatalogData implements ICatalogData {
         this.events = events;
     }
     
-    setCards (cards: IProduct[]) {
+    setCards (cards: IProduct[]): void {
         this._cards = cards;
         this.events.emit('cards: change');
     }
@@ -19,7 +19,7 @@ export class CatalogData implements ICatalogData {
         return this._cards;
     }
 
-    setPreview(id: UUID | null) {
+    setPreview(id: UUID | null): void {
         if(!id){
            this._preview = null;
            return;

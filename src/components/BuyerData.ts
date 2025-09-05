@@ -16,13 +16,13 @@ export class BuyerData implements IBuyerData {
         return {payment: this.payment, email: this.email, phone: this.phone, address: this.address};
     };
 
-    setDeliveryDetails (details: IDeliveryDetails) {
+    setDeliveryDetails (details: IDeliveryDetails): void {
         this.payment = details.payment;
         this.address = details.address;
         this.events.emit('buyer: changed');
     };
 
-    setContact (contact: IContactBuyer) {
+    setContact (contact: IContactBuyer): void {
         this.phone = contact.phone;
         this.email = contact.email;
         this.events.emit('buyer: changed');

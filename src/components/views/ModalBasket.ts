@@ -25,7 +25,7 @@ export class ModalBasket extends Modal<IModalBasket> {
 
     setList (items: HTMLElement[], total: string): void {
         this.basketList.replaceChildren(...items);
-        this.setText(this.basketTotal, total);
+        this.setText(this.basketTotal, `${total} синапсов`);
         super.open();
     };
     

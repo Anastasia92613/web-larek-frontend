@@ -9,7 +9,7 @@ export class BasketData implements IBasket{
         this.events = events;
     };
 
-    setProduct( product: IProduct) {
+    setProduct( product: IProduct): void {
         if (!this._products.some(item => item.id === product.id)){
             this._products.push(product);
             this.events.emit('basket: changet');
@@ -25,10 +25,14 @@ export class BasketData implements IBasket{
        return product ? true : false;
     };
 
-    deleteProduct (id: UUID) {
+    deleteProduct (id: UUID): void {
      this._products = this._products.filter(item => item.id !== id);
      this.events.emit('basket: changet');
     };
+
+    resetBasket(): void {
+        this._products = [];
+    }
 
     getCountProductsInBascket (): number {
         return this._products.length;

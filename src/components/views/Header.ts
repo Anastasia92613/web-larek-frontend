@@ -23,6 +23,6 @@ export class Header extends Component<IHeader> {
     }
 
     set count (count: string) {
-        this.countElement.textContent = count;
+        this.setText(this.countElement, count);
     }
 }

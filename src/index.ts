@@ -227,6 +227,10 @@ events.on('fullOrder: loaded', () => {
     .then((response) => {
         modalView.close();
         successFormView.setDescription(`${response.total}`);
+        formContactView.reset();
+        formOrderView.reset();
+        basketData.resetBasket();
+        header.render({count: `${basketData.getCountProductsInBascket()}`});
     })
     .catch((err) => {
         console.log(err);

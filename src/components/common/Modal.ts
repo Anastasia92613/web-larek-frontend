@@ -26,12 +26,12 @@ export class Modal<T> extends Component<T>  {
     };
 
     open (): void {
-        this.container.classList.add('modal_active');
+        this.toggleClass(this.container, 'modal_active', true);
         document.addEventListener('keyup', this.handleEscUp);
     };
 
     close (): void {
-        this.container.classList.remove('modal_active');
+        this.toggleClass(this.container, 'modal_active', false);
         document.addEventListener('keyup', this.handleEscUp);
     };
 
