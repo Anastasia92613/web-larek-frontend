@@ -32,7 +32,7 @@ export class Modal<T> extends Component<T>  {
 
     close (): void {
         this.toggleClass(this.container, 'modal_active', false);
-        document.addEventListener('keyup', this.handleEscUp);
+        document.removeEventListener('keyup', this.handleEscUp);
     };
 
     handleEscUp(evt: KeyboardEvent): void {

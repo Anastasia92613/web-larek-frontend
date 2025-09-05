@@ -28,5 +28,12 @@ export class BuyerData implements IBuyerData {
         this.events.emit('buyer: changed');
     };
 
+    resetBuyer (): void {
+        this.payment = '';
+        this.address = '';
+        this.phone = '';
+        this.email = '';
+    };
+
 };
 

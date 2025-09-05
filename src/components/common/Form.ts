@@ -66,7 +66,7 @@ export class Form extends Component<IForm> {
     reset (): void {
         this.formElement.reset();
         this.setText(this.error, '');
-        this.setDisabled(this.submitButton, true);
+        this.toggleActiveSubmit(true);
     };
 
 };

@@ -41,9 +41,7 @@ api.getCards()
     catalogData.setCards(initialCards);
     events.emit('initialData: loaded');
 })
-.catch((err) => {
-    console.log(err);
-});
+.catch((console.error));
 
 //Рендер товара в каталоге
 events.on('initialData: loaded', () => {
@@ -68,9 +66,7 @@ events.on('card: open', (data: { card: CardCatalog } ) => {
         const renderCard = cardView.render(card, stateButton);
         modalView.setContent(renderCard);
     })
-    .catch((err) => {
-        console.log(err);
-    });
+    .catch((console.error));
 });
 
 //Добавление товара в корзину
@@ -230,9 +226,8 @@ events.on('fullOrder: loaded', () => {
         formContactView.reset();
         formOrderView.reset();
         basketData.resetBasket();
+        buyerData.resetBuyer();
         header.render({count: `${basketData.getCountProductsInBascket()}`});
     })
-    .catch((err) => {
-        console.log(err);
-    });
+    .catch((console.error));
 });
